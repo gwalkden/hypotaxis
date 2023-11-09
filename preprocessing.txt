@@ -1,0 +1,50 @@
+9th November 2023
+
+This file contains extra steps which need to be taken for individual languages, unfortunately necessary to make the corpora fully comparable and usable with this set of queries. Unless otherwise stated, these steps should be taken BEFORE any of the steps in the main readme file.
+
+
+1. Chinese
+
+The Chinese corpus doesn't contain text IDs by default. I've added them in using the scripts add-id-chi.q and move-id-chi.q so that the coding and querying works.
+
+
+2. English
+
+The query workflow described in the main readme relies on text IDs being the same before the comma, and different after the comma. For some texts, the part before the comma has a different name for each token, or for some tokens (I call this the Comma Problem). 
+
+In the YCOE this is true for cochronA and cochronE. I did a find-and-replace for cochronA- and cochronE- with cochronA, and cochronE, respectively in the original corpus, which fixed this. There's also one missing token ID after coaelhom,+AHom_4:188.624, and one missing token ID after CMCLOUD-M3,78.353, both of which I've also fixed.
+
+In the PPCEME, there are multiple samples from the same text. This is mitigated by using solidate2.py from my CorpusSearchTools (https://github.com/gwalkden/CorpusSearchTools/), included in the .py folder. This needs to be used AFTER the searches (after step 12. in the main readme file), on the output of out2csv2.py.
+
+
+3. French
+
+Nothing special needs to be done with this corpus. Hooray!
+
+
+4. Icelandic
+
+The Icelandic corpus is missing token IDs for the last token in every file. This can be fixed by manually inserting token IDs into the corpus for every file before searching. The query noid.q will find all tokens with no token IDs, which speeds up the manual part by identifying what needs to be changed.
+
+
+5. Irish
+
+In the Irish corpus, there is a full stop instead of a comma as a separator in token IDs (see the Comma Problem described above for English). I fixed this using find-and-replace for each of the fourteen files so the IDs all have the same part before the comma.
+
+The short undated text tdh in the Irish corpus is left out of consideration.
+
+
+6. Low German
+
+The CHLG can only be searched via the web interface, due to licensing restrictions. So I ran steps 1, 4 and 11 on the interface, downloaded the results, and then did the rest locally.
+
+The Comma Problem (described above for English) arises with the CHLG too. So I did find-and-replace for all 18 file titles in root.out and sub.out, replacing a full stop with a comma. Note that, because the source files are not available, this step needs to be done AFTER step 4 in the main readme file.
+
+out2csv2 doesn't do its job when there is a space or a comma in the file name. I had to manually fix this for the CHLG in hypo-nonf.out; do this AFTER step 11.
+
+
+7. Portuguese
+
+The WOCHWEL texts suffers from the Comma Problem (described above for English). I fixed this using find-and-replace for each of the four files so the IDs all have the same part before the comma.
+
+In the Portuguese corpus, a bunch of IDs are missing in the Tycho Brahe texts and some also in the José Arimathea file. This can be fixed either by script at this stage or by manually inserting tokens into the corpus (I did the latter). The query noid.q will find all tokens with no token IDs, which speeds up the manual part by identifying what needs to be changed.

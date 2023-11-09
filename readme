@@ -1,0 +1,191 @@
+This README file was generated on 2023-11-09 by George Walkden.
+Last updated: 2023-11-09.
+
+
+-------------------
+GENERAL INFORMATION
+-------------------
+// Title of Dataset: Replication and supplementary material for "Parataxis and hypotaxis in historical corpora"
+// Contact Information
+     // Name: 		George Walkden
+     // Institution: 	University of Konstanz
+     // Email: 		george.walkden@uni-konstanz.de
+     // ORCID: 		0000-0001-5950-9686
+
+// Description of dataset: 
+Replication and supplementary material for "Parataxis and hypotaxis in historical corpora", by George Walkden.
+
+--------------------------
+METHODOLOGICAL INFORMATION
+--------------------------
+This dataset contains the following seven things:
+
+a) a folder "csv", containing the datasets generated from the corpora (as described below, steps 12., 13. and 15.).
+
+b) a folder "graphs", containing the graphs plotted from the datasets (as described below, steps 14., 16., 19. and 23.).
+
+c) a file "model-outputs.txt", containing the specifications of the linear models and GA(M)Ms fitted to the datasets (as described below, steps 17.-18. and 20.-22.).
+
+d) a file "preprocessing.txt", describing steps needed for individual languages/corpora (as described below, step 0.).
+
+e) a folder "py", containing two scripts that are useful for turning CorpusSearch 2 outputs into .csv files (as described below, step 12.).
+
+f) a folder "queries", containing CorpusSearch 2 queries used to search the parsed historical corpora directly (as described below, steps 0.-11.)
+
+g) this readme file. The rest of the file describes what you need to do in order to replicate the study. Not all of it is automated; for steps 0., 13. and 15. a relatively small amount of manual work is needed. You will need R (and the packages specified below), python, and CorpusSearch 2. A spreadsheet program may also come in handy.
+
+
+SECTION I. Code IPs for clause type
+27 September 2023
+Thanks to Susan Pintzuk for the key queries behind steps 1.-7.
+
+0. Individual corpora need some preparatory work -- see the file preprocessing.txt.
+
+1. get all main and conjoined clauses.
+   root.q
+   input: whole corpus
+   output: root.out
+
+2. code main/conjoined clauses for col1 = m/c
+   root.c
+   input: root.out
+   output: root.cod
+
+3. move coding string out of IP to top level
+    root-move.q
+    input: root.cod
+    output: root-move.out
+
+4. get all subordinate clauses (including direct questions).
+   sub.q
+   input: whole corpus
+   output: sub.out
+
+5. code subordinate clauses for clause type
+   sub.c
+   input: sub.out
+   output: sub.cod
+
+6. pull out (coded) IPs
+   sub1.q
+   input: sub.cod
+   output: sub1.out
+
+7. relabel root node containing the coding string to TOP. From this point on, all searches/coding/etc. should be done on TOP
+    relabel.q
+    input: root-move.out sub1.out
+    output: relabel.out
+
+
+SECTION II. Search corpus for main and subordinate IPs
+27 September 2023
+
+8. Search for paratactic root clauses
+   para-root.q
+   input: relabel.out for given corpus
+   output: para-root.out
+
+9. Search for paratactic conjoined clauses
+   para-conj.q
+   input: relabel.out for given corpus
+   output: para-conj.out
+
+10. Search for hypotactic finite clauses
+   hypo-fin.q
+   input: relabel.out for given corpus
+   output: hypo-fin.out
+
+11. Search for hypotactic non-finite clauses
+   hypo-nonf.q
+   input: whole corpus
+   output: hypo-nonf.out
+
+
+SECTION III. Turn quantitative results into .csv files
+27 September 2023
+
+12. Turn quantitative results into .csv files
+   out2csv2.py (run in python, one file at a time)
+   input: para-root.out para-conj.out hypo-fin.out hypo-nonf.out
+   output: para-root.csv para-conj.csv hypo-fin.csv hypo-nonf.csv
+
+13. Combine .csv files and calculate total number for hypo and para. Add genre and date information for each text. I did this step manually, via copy-paste in a popular spreadsheet program; the output of this step is provided ("[language-name].csv").
+
+
+SECTION IV. Plot the results as points with smooth
+27 September 2023
+
+14. In R: (insert name of language where appropriate, e.g. icelandic)
+   library(ggplot2)
+   library(scales)
+   bytext=read.csv("[language-name].csv")
+   hypoplot<-ggplot(bytext,aes(Date,hypo/total))
+   hypoplot+geom_point(aes(size=total,colour=Genre))+scale_y_continuous("Hypotaxis level",limits=c(0,1))+geom_smooth()
+
+
+SECTION V. Plot the results by area
+27 September 2023
+
+15. Take output of step 13 and calculate proportions over an appropriate time window. Round up, so if your windows are centred on 1150, 1250 etc., texts from 1199 belong to 1150, texts from 1200 belong to 1250. I did this manually using a popular spreadsheet program. The output of this step is provided ("[language-name]-area.csv").
+
+16. In R: (insert name of language where appropriate, e.g. icelandic)
+   library(ggplot2)
+   library(scales)
+   byperiod=read.csv("[language-name]-area.csv")
+   areaplot<-ggplot(byperiod,aes(Period,Proportion))
+   areaplot+geom_area(aes(colour=ClauseType,fill=ClauseType),position='stack')
+
+
+SECTION VI. Mixed-effects linear regression models
+6 Nov 2023
+
+17. Load the packages. In R:
+   library(lme4)
+   library(MuMIn)
+   library(lmerTest)
+   library(effects)
+
+18. Load the data and run the models. In R: (insert name of language where appropriate, e.g. icelandic)
+   [language-name]=read.csv("[language-name].csv")
+   [language-name]$HypoLevel <- [language-name]$hypo / [language-name]$total
+   [language-name].model <- lmer(HypoLevel ~ Date + (1 | Genre), data = [language-name])
+   [language-name].model
+   summary([language-name].model)
+
+Output of the last two commands for each language is in model-outputs.txt
+
+19. Get the effects and make a plot. In R: (insert name of language where appropriate, e.g. icelandic)
+   [language-name].effects <- as.data.frame(effect(term="Date",mod=[language-name].model))
+   [language-name].plot <- ggplot([language-name],aes(Date,HypoLevel))+geom_ribbon(data=[language-name].effects, aes(x=Date,y=fit,ymin=lower,ymax=upper), fill = "grey70", alpha=0.4)+geom_point()+scale_y_continuous("Hypotaxis level",limits=c(0,1))+geom_line(data=[language-name].effects, aes(x=Date, y=fit), color="blue")
+
+20. Calculate marginal and conditional R2 values. In R: (insert name of language where appropriate, e.g. icelandic)
+   r.squaredGLMM([language-name].model)
+
+Output of the last command for each language is in model-outputs.txt
+
+
+SECTION VII. GA(M)Ms
+7-9 Nov 2023
+
+21. Load the packages. In R:
+   library(ggplot2)
+   library(scales)
+   library(tidygam)
+   library(mgcv)
+
+22. Load the data and run the models with and without genre. In R: (insert name of language where appropriate, e.g. icelandic)
+   [language-name]=read.csv("[language-name].csv")
+   [language-name]$HypoLevel <- [language-name]$hypo / [language-name]$total
+   [language-name]$Genre <- as.factor([language-name]$Genre)
+   [language-name].gam <- bam(HypoLevel ~ s(Date, bs="cr"), data=[language-name])
+   [language-name].gamm <- bam(HypoLevel ~ s(Date, bs="cr") + s(Genre, bs="re"), data=[language-name])
+   [language-name].gam
+   summary([language-name].gam)
+   [language-name].gamm
+   summary([language-name].gamm)
+
+Output of the last four commands for each language is in model-outputs.txt
+
+23. Get predictions for the models without genre and make plots. In R: (insert name of language where appropriate, e.g. icelandic)
+   [language-name].predict <- predict_gam([language-name].gam)
+   [language-name].gamplot <- ggplot([language-name].predict) + scale_y_continuous("Hypotaxis level",limits=c(0,1)) + geom_ribbon(aes(x=Date,ymin=lower_ci,ymax=upper_ci), fill = "grey70", alpha=0.4) + geom_point(data=[language-name], aes(x=Date,y=HypoLevel)) + geom_line(aes(x=Date,y=HypoLevel), color="blue")

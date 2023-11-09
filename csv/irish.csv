@@ -1,0 +1,14 @@
+﻿File,Date,Genre,hypo-fin,hypo-nonf,para-conj,para-root,para-root2,hypo,para,total
+arm,700,Legal,39,0,14,95,1,39,110,149
+cam,688,Sermon,40,0,1,29,1,40,31,71
+com,776,Religious,59,9,8,65,0,68,73,141
+fg,950,Narrative,25,1,8,34,0,26,42,68
+fr,913,Narrative,98,5,12,172,3,103,187,290
+hom,850,Sermon,47,0,1,86,0,47,87,134
+lais,900,Religious,52,0,22,48,2,52,72,124
+lc,725,Religious,159,2,20,307,1,161,328,489
+lh,1100,Religious,266,6,118,460,4,272,582,854
+mass,800,Religious,49,2,7,45,0,51,52,103
+mt,835,Religious,562,32,83,536,13,594,632,1226
+ps,813,Religious,266,1,36,260,8,267,304,571
+wms,813,Religious,30,1,13,27,1,31,41,72

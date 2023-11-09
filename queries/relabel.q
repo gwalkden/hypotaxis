@@ -1,0 +1,4 @@
+node: $METAROOT
+query: ({1}CODING* iDoms [1]*)
+AND ({2}IP-SUB|IP-SUB-SPE|IP-SUB-#|IP-SUB-SPE-#|IP-SUB-CON|IP-SUB-CON-SPE|IP-SUB-CON-#|IP-SUB-CON-SPE-#|IP-MAT|IP-MAT-SPE|IP-MAT-#|IP-MAT-SPE-# iDoms [2]*)
+add_internal_node{1,2}: TOP

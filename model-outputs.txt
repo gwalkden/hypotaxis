@@ -1,0 +1,790 @@
+Model outputs
+
+
+Linear models:
+
+Chinese:
+
+Linear mixed model fit by REML ['lmerModLmerTest']
+Formula: HypoLevel ~ Date + (1 | Genre)
+   Data: chinese
+REML criterion at convergence: -17.564
+Random effects:
+ Groups   Name        Std.Dev.
+ Genre    (Intercept) 0.0000  
+ Residual             0.0416  
+Number of obs: 12, groups:  Genre, 5
+Fixed Effects:
+(Intercept)         Date  
+  2.159e-01    1.651e-05  
+optimizer (nloptwrap) convergence code: 0 (OK) ; 0 optimizer warnings; 1 lme4 warnings 
+
+Summary:
+
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: HypoLevel ~ Date + (1 | Genre)
+   Data: chinese
+
+REML criterion at convergence: -17.6
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-1.4913 -0.4393 -0.1915  0.7865  1.4458 
+
+Random effects:
+ Groups   Name        Variance Std.Dev.
+ Genre    (Intercept) 0.000000 0.0000  
+ Residual             0.001731 0.0416  
+Number of obs: 12, groups:  Genre, 5
+
+Fixed effects:
+             Estimate Std. Error        df t value Pr(>|t|)    
+(Intercept) 2.159e-01  2.140e-02 1.000e+01  10.088 1.47e-06 ***
+Date        1.651e-05  2.120e-05 1.000e+01   0.779    0.454    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+     (Intr)
+Date -0.828
+optimizer (nloptwrap) convergence code: 0 (OK)
+boundary (singular) fit: see help('isSingular')
+
+English:
+
+Linear mixed model fit by REML ['lmerModLmerTest']
+Formula: HypoLevel ~ Date + (1 | Genre)
+   Data: english
+REML criterion at convergence: -871.3925
+Random effects:
+ Groups   Name        Std.Dev.
+ Genre    (Intercept) 0.1091  
+ Residual             0.1210  
+Number of obs: 667, groups:  Genre, 8
+Fixed Effects:
+(Intercept)         Date  
+  4.341e-01    4.524e-05  
+
+Summary:
+
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: HypoLevel ~ Date + (1 | Genre)
+   Data: english
+
+REML criterion at convergence: -871.4
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-3.8434 -0.6117 -0.0180  0.6723  2.8628 
+
+Random effects:
+ Groups   Name        Variance Std.Dev.
+ Genre    (Intercept) 0.01191  0.1091  
+ Residual             0.01463  0.1210  
+Number of obs: 667, groups:  Genre, 8
+
+Fixed effects:
+             Estimate Std. Error        df t value Pr(>|t|)    
+(Intercept) 4.341e-01  4.869e-02 1.652e+01   8.915 1.02e-07 ***
+Date        4.524e-05  1.800e-05 6.612e+02   2.513   0.0122 *  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+     (Intr)
+Date -0.595
+
+French:
+
+Linear mixed model fit by REML ['lmerModLmerTest']
+Formula: HypoLevel ~ Date + (1 | Genre)
+   Data: french
+REML criterion at convergence: -118.9428
+Random effects:
+ Groups   Name        Std.Dev.
+ Genre    (Intercept) 0.13066 
+ Residual             0.06774 
+Number of obs: 65, groups:  Genre, 10
+Fixed Effects:
+(Intercept)         Date  
+   0.178338     0.000283  
+
+Summary:
+
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: HypoLevel ~ Date + (1 | Genre)
+   Data: french
+
+REML criterion at convergence: -118.9
+
+Scaled residuals: 
+     Min       1Q   Median       3Q      Max 
+-2.76834 -0.53333 -0.03832  0.44650  2.05264 
+
+Random effects:
+ Groups   Name        Variance Std.Dev.
+ Genre    (Intercept) 0.017072 0.13066 
+ Residual             0.004589 0.06774 
+Number of obs: 65, groups:  Genre, 10
+
+Fixed effects:
+             Estimate Std. Error        df t value Pr(>|t|)    
+(Intercept) 1.783e-01  1.115e-01 6.103e+01   1.599 0.115032    
+Date        2.830e-04  8.140e-05 5.920e+01   3.476 0.000958 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+     (Intr)
+Date -0.921
+
+Icelandic:
+
+Linear mixed model fit by REML ['lmerModLmerTest']
+Formula: HypoLevel ~ Date + (1 | Genre)
+   Data: icelandic
+REML criterion at convergence: -92.2196
+Random effects:
+ Groups   Name        Std.Dev.
+ Genre    (Intercept) 0.07122 
+ Residual             0.08624 
+Number of obs: 61, groups:  Genre, 8
+Fixed Effects:
+(Intercept)         Date  
+  5.330e-01    6.907e-07  
+
+Summary:
+
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: HypoLevel ~ Date + (1 | Genre)
+   Data: icelandic
+
+REML criterion at convergence: -92.2
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-2.1787 -0.5395 -0.1751  0.5785  2.4790 
+
+Random effects:
+ Groups   Name        Variance Std.Dev.
+ Genre    (Intercept) 0.005072 0.07122 
+ Residual             0.007438 0.08624 
+Number of obs: 61, groups:  Genre, 8
+
+Fixed effects:
+             Estimate Std. Error        df t value Pr(>|t|)    
+(Intercept) 5.330e-01  9.694e-02 5.535e+01   5.498 1.01e-06 ***
+Date        6.907e-07  5.948e-05 5.861e+01   0.012    0.991    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+     (Intr)
+Date -0.954
+
+Irish:
+
+Linear mixed model fit by REML ['lmerModLmerTest']
+Formula: HypoLevel ~ Date + (1 | Genre)
+   Data: irish
+REML criterion at convergence: -8.5785
+Random effects:
+ Groups   Name        Std.Dev.
+ Genre    (Intercept) 0.06551 
+ Residual             0.07451 
+Number of obs: 13, groups:  Genre, 4
+Fixed Effects:
+(Intercept)         Date  
+  0.6322203   -0.0002921  
+
+Summary:
+
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: HypoLevel ~ Date + (1 | Genre)
+   Data: irish
+
+REML criterion at convergence: -8.6
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-1.7216 -0.3957  0.1738  0.5320  1.3701 
+
+Random effects:
+ Groups   Name        Variance Std.Dev.
+ Genre    (Intercept) 0.004292 0.06551 
+ Residual             0.005552 0.07451 
+Number of obs: 13, groups:  Genre, 4
+
+Fixed effects:
+              Estimate Std. Error         df t value Pr(>|t|)   
+(Intercept)  0.6322203  0.1776498 10.1177740   3.559   0.0051 **
+Date        -0.0002921  0.0002101  9.4959063  -1.391   0.1961   
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+     (Intr)
+Date -0.973
+
+Low German:
+
+Linear mixed model fit by REML ['lmerModLmerTest']
+Formula: HypoLevel ~ Date + (1 | Genre)
+   Data: german
+REML criterion at convergence: -13.9963
+Random effects:
+ Groups   Name        Std.Dev.
+ Genre    (Intercept) 0.13922 
+ Residual             0.07419 
+Number of obs: 20, groups:  Genre, 8
+Fixed Effects:
+(Intercept)         Date  
+  0.2721644    0.0001039  
+
+Summary:
+
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: HypoLevel ~ Date + (1 | Genre)
+   Data: german
+
+REML criterion at convergence: -14
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-1.2653 -0.5527 -0.1522  0.7445  1.6434 
+
+Random effects:
+ Groups   Name        Variance Std.Dev.
+ Genre    (Intercept) 0.019383 0.13922 
+ Residual             0.005504 0.07419 
+Number of obs: 20, groups:  Genre, 8
+
+Fixed effects:
+             Estimate Std. Error        df t value Pr(>|t|)
+(Intercept) 2.722e-01  3.671e-01 1.293e+01   0.741    0.472
+Date        1.039e-04  2.510e-04 1.236e+01   0.414    0.686
+
+Correlation of Fixed Effects:
+     (Intr)
+Date -0.989
+
+Portuguese:
+
+Linear mixed model fit by REML ['lmerModLmerTest']
+Formula: HypoLevel ~ Date + (1 | Genre)
+   Data: portuguese
+REML criterion at convergence: -42.0575
+Random effects:
+ Groups   Name        Std.Dev.
+ Genre    (Intercept) 0.03780 
+ Residual             0.08279 
+Number of obs: 31, groups:  Genre, 8
+Fixed Effects:
+(Intercept)         Date  
+  0.8138252   -0.0001309  
+
+Summary:
+
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: HypoLevel ~ Date + (1 | Genre)
+   Data: portuguese
+
+REML criterion at convergence: -42.1
+
+Scaled residuals: 
+     Min       1Q   Median       3Q      Max 
+-1.62930 -0.78124 -0.02402  0.73310  1.94196 
+
+Random effects:
+ Groups   Name        Variance Std.Dev.
+ Genre    (Intercept) 0.001429 0.03780 
+ Residual             0.006854 0.08279 
+Number of obs: 31, groups:  Genre, 8
+
+Fixed effects:
+              Estimate Std. Error         df t value Pr(>|t|)    
+(Intercept)  0.8138252  0.1676628 28.5994487   4.854 3.93e-05 ***
+Date        -0.0001309  0.0001012 28.9474999  -1.293    0.206    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+     (Intr)
+Date -0.991
+
+
+Output of MuMiN for linear models, i.e. r.squaredGLMM([language-name].model)
+
+Chinese:
+           R2m       R2c
+[1,] 0.0522226 0.0522226
+
+English:
+             R2m       R2c
+[1,] 0.005637543 0.4518298
+
+French:
+            R2m       R2c
+[1,] 0.06928952 0.8028335
+
+Icelandic:
+              R2m      R2c
+[1,] 2.403185e-06 0.405462
+
+Irish:
+            R2m       R2c
+[1,] 0.09869311 0.4916362
+
+Low German:
+            R2m      R2c
+[1,] 0.00284414 0.779462
+
+Portuguese:
+            R2m       R2c
+[1,] 0.05181601 0.2153938
+
+
+GAMs without genre
+
+Chinese:
+
+Family: gaussian 
+Link function: identity 
+
+Formula:
+HypoLevel ~ s(Date, bs = "cr")
+
+Estimated degrees of freedom:
+1  total = 2 
+
+fREML score: -16.34763     
+
+Summary:
+
+Family: gaussian 
+Link function: identity 
+
+Formula:
+HypoLevel ~ s(Date, bs = "cr")
+
+Parametric coefficients:
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  0.22964    0.01201   19.12 3.33e-09 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Approximate significance of smooth terms:
+        edf Ref.df     F p-value
+s(Date)   1      1 0.606   0.454
+
+R-sq.(adj) =  -0.0371   Deviance explained = 5.71%
+fREML = -16.348  Scale est. = 0.0017309  n = 12
+
+English:
+
+Family: gaussian 
+Link function: identity 
+
+Formula:
+HypoLevel ~ s(Date, bs = "cr")
+
+Estimated degrees of freedom:
+4.85  total = 5.85 
+
+fREML score: -405.2106     
+
+Summary:
+
+Family: gaussian 
+Link function: identity 
+
+Formula:
+HypoLevel ~ s(Date, bs = "cr")
+
+Parametric coefficients:
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept) 0.550302   0.005012   109.8   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Approximate significance of smooth terms:
+          edf Ref.df     F p-value    
+s(Date) 4.846  5.663 24.27  <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+R-sq.(adj) =  0.171   Deviance explained = 17.7%
+fREML = -405.21  Scale est. = 0.016758  n = 667
+
+French:
+
+Family: gaussian 
+Link function: identity 
+
+Formula:
+HypoLevel ~ s(Date, bs = "cr")
+
+Estimated degrees of freedom:
+4.48  total = 5.48 
+
+fREML score: -47.45537    
+
+Summary:
+
+Family: gaussian 
+Link function: identity 
+
+Formula:
+HypoLevel ~ s(Date, bs = "cr")
+
+Parametric coefficients:
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  0.50971    0.01276   39.96   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Approximate significance of smooth terms:
+          edf Ref.df     F  p-value    
+s(Date) 4.477  5.382 4.696 0.000844 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+R-sq.(adj) =  0.276   Deviance explained = 32.7%
+fREML = -47.455  Scale est. = 0.010578  n = 65 
+
+Icelandic:
+
+Family: gaussian 
+Link function: identity 
+
+Formula:
+HypoLevel ~ s(Date, bs = "cr")
+
+Estimated degrees of freedom:
+4.13  total = 5.13 
+
+fREML score: -46.91166   
+
+Summary:
+
+Family: gaussian 
+Link function: identity 
+
+Formula:
+HypoLevel ~ s(Date, bs = "cr")
+
+Parametric coefficients:
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  0.49712    0.01268   39.22   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Approximate significance of smooth terms:
+          edf Ref.df     F p-value  
+s(Date) 4.131  5.064 2.249  0.0611 .
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+R-sq.(adj) =   0.15   Deviance explained = 20.9%
+fREML = -46.912  Scale est. = 0.0098021  n = 61  
+
+Irish:
+
+Family: gaussian 
+Link function: identity 
+
+Formula:
+HypoLevel ~ s(Date, bs = "cr")
+
+Estimated degrees of freedom:
+1  total = 2 
+
+fREML score: -10.05044     
+
+Summary:
+
+Family: gaussian 
+Link function: identity 
+
+Formula:
+HypoLevel ~ s(Date, bs = "cr")
+
+Parametric coefficients:
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  0.41081    0.02389    17.2 2.69e-09 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Approximate significance of smooth terms:
+        edf Ref.df     F p-value
+s(Date)   1      1 1.064   0.324
+
+R-sq.(adj) =  0.00535   Deviance explained = 8.82%
+fREML = -10.05  Scale est. = 0.0074203  n = 13
+
+German:
+
+Family: gaussian 
+Link function: identity 
+
+Formula:
+HypoLevel ~ s(Date, bs = "cr")
+
+Estimated degrees of freedom:
+2.62  total = 3.62 
+
+fREML score: -8.734885     
+
+Summary:
+
+Family: gaussian 
+Link function: identity 
+
+Formula:
+HypoLevel ~ s(Date, bs = "cr")
+
+Parametric coefficients:
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)   0.4984     0.0281   17.74 4.04e-12 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Approximate significance of smooth terms:
+          edf Ref.df     F p-value  
+s(Date) 2.623  3.237 2.544  0.0874 .
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+R-sq.(adj) =  0.277   Deviance explained = 37.7%
+fREML = -8.7349  Scale est. = 0.015789  n = 20
+
+Portuguese:
+
+Family: gaussian 
+Link function: identity 
+
+Formula:
+HypoLevel ~ s(Date, bs = "cr")
+
+Estimated degrees of freedom:
+2.69  total = 3.69 
+
+fREML score: -31.52301     
+
+Summary:
+
+Family: gaussian 
+Link function: identity 
+
+Formula:
+HypoLevel ~ s(Date, bs = "cr")
+
+Parametric coefficients:
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  0.60862    0.01292   47.11   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Approximate significance of smooth terms:
+          edf Ref.df     F p-value   
+s(Date) 2.694  3.263 5.651 0.00317 **
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+R-sq.(adj) =  0.368   Deviance explained = 42.5%
+fREML = -31.523  Scale est. = 0.0051732  n = 31
+
+
+GAMMs with genre
+
+English:
+
+Family: gaussian 
+Link function: identity 
+
+Formula:
+HypoLevel ~ s(Date, bs = "cr") + s(Genre, bs = "re")
+
+Estimated degrees of freedom:
+4.30 6.79  total = 12.1 
+
+fREML score: -481.3819     
+
+Summary:
+
+Family: gaussian 
+Link function: identity 
+
+Formula:
+HypoLevel ~ s(Date, bs = "cr") + s(Genre, bs = "re")
+
+Parametric coefficients:
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  0.51083    0.03608   14.16   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Approximate significance of smooth terms:
+           edf Ref.df     F p-value    
+s(Date)  4.302  5.077 19.31  <2e-16 ***
+s(Genre) 6.793  7.000 29.31  <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+R-sq.(adj) =  0.364   Deviance explained = 37.4%
+fREML = -481.38  Scale est. = 0.012863  n = 667
+
+French:
+
+Family: gaussian 
+Link function: identity 
+
+Formula:
+HypoLevel ~ s(Date, bs = "cr") + s(Genre, bs = "re")
+
+Estimated degrees of freedom:
+5.01 8.05  total = 14.06 
+
+fREML score: -72.39576     
+
+Summary:
+
+Family: gaussian 
+Link function: identity 
+
+Formula:
+HypoLevel ~ s(Date, bs = "cr") + s(Genre, bs = "re")
+
+Parametric coefficients:
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  0.52056    0.04097   12.71   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Approximate significance of smooth terms:
+           edf Ref.df      F  p-value    
+s(Date)  5.013  5.889  7.582 7.49e-06 ***
+s(Genre) 8.051  9.000 15.958  < 2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+R-sq.(adj) =  0.788   Deviance explained = 83.2%
+fREML = -72.396  Scale est. = 0.0030932  n = 65
+
+Icelandic:
+
+Family: gaussian 
+Link function: identity 
+
+Formula:
+HypoLevel ~ s(Date, bs = "cr") + s(Genre, bs = "re")
+
+Estimated degrees of freedom:
+1.29 5.08  total = 7.37 
+
+fREML score: -53.57454     
+
+Summary:
+
+Family: gaussian 
+Link function: identity 
+
+Formula:
+HypoLevel ~ s(Date, bs = "cr") + s(Genre, bs = "re")
+
+Parametric coefficients:
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  0.53407    0.02907   18.37   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Approximate significance of smooth terms:
+          edf Ref.df     F p-value    
+s(Date)  1.29  1.509 0.082   0.854    
+s(Genre) 5.08  7.000 4.824 8.7e-06 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+R-sq.(adj) =  0.359   Deviance explained = 42.7%
+fREML = -53.575  Scale est. = 0.007395  n = 61
+
+German:
+
+Family: gaussian 
+Link function: identity 
+
+Formula:
+HypoLevel ~ s(Date, bs = "cr") + s(Genre, bs = "re")
+
+Estimated degrees of freedom:
+1.49 5.89  total = 8.38 
+
+fREML score: -12.8943     
+
+Summary:
+
+Family: gaussian 
+Link function: identity 
+
+Formula:
+HypoLevel ~ s(Date, bs = "cr") + s(Genre, bs = "re")
+
+Parametric coefficients:
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  0.42144    0.05303   7.947 4.92e-06 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Approximate significance of smooth terms:
+           edf Ref.df     F  p-value    
+s(Date)  1.489  1.801 0.342 0.645789    
+s(Genre) 5.888  7.000 6.426 0.000655 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+R-sq.(adj) =   0.76   Deviance explained = 85.3%
+fREML = -12.894  Scale est. = 0.0052464  n = 20
+
+Portuguese:
+
+Family: gaussian 
+Link function: identity 
+
+Formula:
+HypoLevel ~ s(Date, bs = "cr") + s(Genre, bs = "re")
+
+Estimated degrees of freedom:
+2.83 3.03  total = 6.86 
+
+fREML score: -32.23747     
+
+Summary:
+
+Family: gaussian 
+Link function: identity 
+
+Formula:
+HypoLevel ~ s(Date, bs = "cr") + s(Genre, bs = "re")
+
+Parametric coefficients:
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  0.60534    0.01994   30.36   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Approximate significance of smooth terms:
+           edf Ref.df     F p-value   
+s(Date)  2.825  3.398 5.583 0.00384 **
+s(Genre) 3.030  7.000 0.936 0.07657 . 
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+R-sq.(adj) =  0.494   Deviance explained = 59.3%
+fREML = -32.237  Scale est. = 0.0041427  n = 31
