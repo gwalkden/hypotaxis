@@ -1,5 +1,5 @@
 This README file was generated on 2023-11-09 by George Walkden.
-Last updated: 2023-11-09.
+Last updated: 2025-07-18.
 
 
 -------------------
@@ -18,7 +18,7 @@ Replication and supplementary material for "Parataxis and hypotaxis in historica
 --------------------------
 METHODOLOGICAL INFORMATION
 --------------------------
-This dataset contains the following seven things:
+This dataset contains the following nine things:
 
 a) a folder "csv", containing the datasets generated from the corpora (as described below, steps 12., 13. and 15.).
 
@@ -33,6 +33,10 @@ e) a folder "py", containing two scripts that are useful for turning CorpusSearc
 f) a folder "queries", containing CorpusSearch 2 queries used to search the parsed historical corpora directly (as described below, steps 0.-11.)
 
 g) this readme file. The rest of the file describes what you need to do in order to replicate the study. Not all of it is automated; for steps 0., 13. and 15. a relatively small amount of manual work is needed. You will need R (and the packages specified below), python, and CorpusSearch 2. A spreadsheet program may also come in handy.
+
+h) a file "null-model-outputs.txt", containing the specifications of the linear models without fixed effects fitted to the datasets (as described below, steps 25. and 26.; added 27 Nov 2024).
+
+i) a folder "power", containing materials relating to the power analysis (added 18 Jul 2025).
 
 
 SECTION I. Code IPs for clause type
@@ -189,3 +193,68 @@ Output of the last four commands for each language is in model-outputs.txt
 23. Get predictions for the models without genre and make plots. In R: (insert name of language where appropriate, e.g. icelandic)
    [language-name].predict <- predict_gam([language-name].gam)
    [language-name].gamplot <- ggplot([language-name].predict) + scale_y_continuous("Hypotaxis level",limits=c(0,1)) + geom_ribbon(aes(x=Date,ymin=lower_ci,ymax=upper_ci), fill = "grey70", alpha=0.4) + geom_point(data=[language-name], aes(x=Date,y=HypoLevel)) + geom_line(aes(x=Date,y=HypoLevel), color="blue")
+
+
+SECTION VIII. Graphs by genre for more robustly attested languages
+in response to a reviewer's suggestion
+24 Nov 2024
+
+24. This builds on step 14. For each language:
+   genreplot<-ggplot(bytext,aes(Date,hypo/total))+geom_point()+geom_smooth()
+   genreplot + facet_wrap(vars(Genre)) + scale_y_continuous("Hypotaxis level",limits=c(0,1))
+
+
+SECTION IX. Model comparison
+in response to a reviewer's suggestion
+27 Nov 2024
+
+25. Linear models without time. This builds on step 18. For each language:
+   [language-name].nullmodel <- lmer(HypoLevel ~ (1 | Genre), data = [language-name])
+   [language-name].nullmodel
+   summary([language-name].nullmodel)
+   AIC([language-name].model)
+   AIC([language-name].nullmodel)
+
+Output of the last four commands for each language is in null-model-outputs.txt
+
+26. GAMMs without time. This builds on step 22. For each language:
+   [language-name].nullgamm <- bam(HypoLevel ~ s(Genre, bs="re"), data=[language-name])
+   AIC([language-name].gam)
+   AIC([language-name].gamm)
+   AIC([language-name].gamm)
+
+Output of the last four commands for each language is in null-model-outputs.txt
+
+
+SECTION X. Power analysis
+in response to a reviewer's suggestion
+18 Jul 2025
+
+27. Load the package. In R:
+   library(simr)
+
+28. Post-hoc power analysis for Chinese, English and Irish. This builds on step 18. For each language: 
+   sim_[language-name] <- powerSim([language-name].model, nsim=100)
+   sim_[language-name]
+
+Output is in power/power-analysis.txt
+
+29. Look at power with 100 simulations each for a range of effect sizes. For each language:
+   columns = c("EffectSize","Power")
+   [language-name].power <- data.frame(matrix(nrow=0,ncol=length(columns)))
+   colnames([language-name].power) = columns
+   [language-name].model.temp <- [language-name].model
+   for (u in 1:200) {
+      fixef([language-name].model.temp)['Date'] <- 0.000005 * u
+      sim_[language-name].model.temp <- powerSim([language-name].model.temp, nsim=100)
+      [language-name].power[nrow([language-name].power) + 1,] <- c(0.000005 * u, sim_[language-name].model.temp$x)
+   }
+   [language-name].power
+
+Output is in power/power-analysis.txt
+
+30. Plot power as a function of effect size. For each language:
+   powerplot <- ggplot([language-name].power,aes(EffectSize,Power))+geom_point()+geom_smooth()
+   powerplot
+
+Output graphs are in folder power
